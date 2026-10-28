@@ -13,6 +13,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             Lab3Theme {
                 Scaffold(
                     modifier = Modifier.fillMaxSize(),
-                    containerColor = Color(0xFF1C1B1B)
+                    containerColor = Color(0xFF0F172A)
                 ) { innerPadding ->
                     JokeScreen(modifier = Modifier.padding(innerPadding))
                 }
@@ -54,8 +55,11 @@ fun JokeScreen(modifier: Modifier = Modifier) {
     val isEn = currentLocales == "en"
     val isPseudo = currentLocales == "en-XA"
 
-    val primaryTeal = Color(0xFF006D40)
-    val cardBackground = Color(0xFF666666)
+
+    val accentColor = Color(0xFFF59E0B)
+    val cardBackground = Color(0xFF1E293B)
+    val buttonTextColor = Color.White
+    val textMuted = Color(0xFF94A3B8)
 
     Column(
         modifier = modifier
@@ -68,7 +72,7 @@ fun JokeScreen(modifier: Modifier = Modifier) {
             text = stringResource(R.string.app_name),
             fontSize = 24.sp,
             fontWeight = FontWeight.Bold,
-            color = Color.Gray
+            color = textMuted
         )
 
         Spacer(modifier = Modifier.height(24.dp))
@@ -77,38 +81,53 @@ fun JokeScreen(modifier: Modifier = Modifier) {
             horizontalArrangement = Arrangement.spacedBy(8.dp)
         ) {
             if (isPseudo) {
-                Button(onClick = { }, colors = ButtonDefaults.buttonColors(containerColor = primaryTeal)) {
-                    Text("Pseudo")
+                Button(
+                    onClick = { },
+                    shape = RectangleShape,
+                    colors = ButtonDefaults.buttonColors(containerColor = accentColor)
+                ) {
+                    Text("Pseudo", color = buttonTextColor)
                 }
             } else {
-                OutlinedButton(onClick = {
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("en-XA"))
-                }) {
-                    Text("Pseudo", color = Color.Gray)
+                OutlinedButton(
+                    onClick = { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("en-XA")) },
+                    shape = RectangleShape
+                ) {
+                    Text("Pseudo", color = textMuted)
                 }
             }
 
             if (isPl) {
-                Button(onClick = { }, colors = ButtonDefaults.buttonColors(containerColor = primaryTeal)) {
-                    Text("Polski")
+                Button(
+                    onClick = { },
+                    shape = RectangleShape,
+                    colors = ButtonDefaults.buttonColors(containerColor = accentColor)
+                ) {
+                    Text("Polski", color = buttonTextColor)
                 }
             } else {
-                OutlinedButton(onClick = {
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("pl"))
-                }) {
-                    Text("Polski", color = Color.Gray)
+                OutlinedButton(
+                    onClick = { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("pl")) },
+                    shape = RectangleShape
+                ) {
+                    Text("Polski", color = textMuted)
                 }
             }
 
             if (isEn) {
-                Button(onClick = { }, colors = ButtonDefaults.buttonColors(containerColor = primaryTeal)) {
-                    Text("English")
+                Button(
+                    onClick = { },
+                    shape = RectangleShape,
+                    colors = ButtonDefaults.buttonColors(containerColor = accentColor)
+                ) {
+                    Text("English", color = buttonTextColor)
                 }
             } else {
-                OutlinedButton(onClick = {
-                    AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("en"))
-                }) {
-                    Text("English", color = Color.Gray)
+                OutlinedButton(
+                    onClick = { AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags("en")) },
+                    shape = RectangleShape
+                ) {
+                    Text("English", color = textMuted)
                 }
             }
         }
@@ -123,7 +142,7 @@ fun JokeScreen(modifier: Modifier = Modifier) {
                 .padding(horizontal = 8.dp)
         ) {
             Text(
-                text = jokes[currentJokeIndex % jokes.size],
+                text = if (jokes.isNotEmpty()) jokes[currentJokeIndex % jokes.size] else "",
                 modifier = Modifier.padding(24.dp),
                 fontSize = 18.sp,
                 textAlign = TextAlign.Center,
@@ -136,17 +155,20 @@ fun JokeScreen(modifier: Modifier = Modifier) {
 
         Button(
             onClick = {
-                jokeCount++
-                currentJokeIndex = Random.nextInt(jokes.size)
+                if (jokes.isNotEmpty()) {
+                    jokeCount++
+                    currentJokeIndex = Random.nextInt(jokes.size)
+                }
             },
             shape = CircleShape,
-            colors = ButtonDefaults.buttonColors(containerColor = primaryTeal),
+            colors = ButtonDefaults.buttonColors(containerColor = accentColor),
             modifier = Modifier.size(160.dp)
         ) {
             Text(
                 text = stringResource(R.string.show_joke),
                 fontSize = 18.sp,
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.Medium,
+                color = buttonTextColor
             )
         }
 
@@ -158,7 +180,7 @@ fun JokeScreen(modifier: Modifier = Modifier) {
                 count = jokeCount,
                 jokeCount
             ),
-            color = primaryTeal,
+            color = accentColor,
             fontSize = 16.sp,
             fontWeight = FontWeight.Medium
         )
@@ -167,7 +189,7 @@ fun JokeScreen(modifier: Modifier = Modifier) {
 
         Text(
             text = stringResource(R.string.jokes_counter, jokeCount),
-            color = Color.Gray,
+            color = textMuted,
             fontSize = 14.sp
         )
     }

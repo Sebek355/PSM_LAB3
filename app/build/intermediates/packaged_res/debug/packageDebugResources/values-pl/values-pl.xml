@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="jokes_array">
+        <item>Dlaczego programiści mylą Boże Narodzenie z Halloween? Bo 31 OCT = 25 DEC.</item>
+        <item>Jak nazywa się bumerang, który nie wraca? Kijek.</item>
+        <item>Przychodzi baba do lekarza, a lekarz też baba.</item>
+        <item>Co mówi informatyk, gdy dostanie pendrive na urodziny? Dzięki za pamięć!</item>
+        <item>Siedzą dwa gołębie na gałęzi. Jeden grucha, a drugi jabłko.</item>
+    </string-array>
+    <plurals name="jokes_seen">
+        <item quantity="one">Obejrzano %d żart</item>
+        <item quantity="few">Obejrzano %d żarty</item>
+        <item quantity="many">Obejrzano %d żartów</item>
+        <item quantity="other">Obejrzano %d żartów</item>
+    </plurals>
+    <string name="app_name">ŻARCIKI</string>
+    <string name="jokes_counter">Cześć, gościu! Oto Twój żart numer %1$d</string>
+    <string name="show_joke">Pokaż Żart</string>
+    <string name="system_language">Systemowy</string>
+</resources>

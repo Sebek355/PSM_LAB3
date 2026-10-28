@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="jokes_array">
+        <item>Why do programmers confuse Halloween and Christmas? Because 31 OCT = 25 DEC.</item>
+        <item>What do you call a boomerang that doesn\'t come back? A stick.</item>
+        <item>A guy walks into a bar... and says "Ouch!"</item>
+        <item>What does a programmer say when they get a flash drive for their birthday? Thanks for the memory!</item>
+        <item>Two muffins are in an oven. One says, "It\'s hot in here." The other says, "Wow, a talking muffin!"</item>
+    </string-array>
+    <color name="black">#FF000000</color>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="white">#FFFFFFFF</color>
+    <plurals name="jokes_seen">
+        <item quantity="one">%d joke seen so far</item>
+        <item quantity="other">%d jokes seen so far</item>
+    </plurals>
+    <string name="app_name">JOKE APP</string>
+    <string name="jokes_counter">Hello, guest! Here is your joke number %1$d</string>
+    <string name="show_joke">Show Joke</string>
+    <string name="system_language">System</string>
+    <style name="Theme.Lab3" parent="android:Theme.Material.Light.NoActionBar"/>
+</resources>

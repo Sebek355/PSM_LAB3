@@ -1,0 +1,22 @@
+com.example.lab3
+array jokes_array
+color black
+color purple_200
+color purple_500
+color purple_700
+color teal_200
+color teal_700
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+mipmap ic_launcher
+mipmap ic_launcher_round
+plurals jokes_seen
+string app_name
+string jokes_counter
+string show_joke
+string system_language
+style Theme_Lab3
+xml backup_rules
+xml data_extraction_rules
+xml locales_config
